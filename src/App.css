@@ -1,0 +1,12 @@
+h1 {
+  text-align: center;
+}
+
+.portfolio-list {
+  font-size: 1.25rem;
+  font-weight: 200;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: black;
+  text-align: center;
+  margin: 0 auto;
+}
