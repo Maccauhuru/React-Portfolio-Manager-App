@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-
+import uuid from 'uuid';
+import PropTypes from 'prop-types';
 class AddPortfolio extends Component {
 constructor(){
     super();
     this.state = {
         newProject :{
+            id: uuid.v4(),
             title : '',
             category : ''
         }
@@ -32,14 +34,14 @@ e.preventDefault();
   render() {
     let categoryOptions = this.props.categories.map(category => {
       return (
-        <option key={category} value="category">
+        <option key={category} value={category}>
           {category}
         </option>
       );
     });
     return (
       <div>
-        <h3>Add New Portfolio Project</h3>
+        <h2>Add New Portfolio Project</h2>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
             <label>Title</label>
@@ -51,11 +53,18 @@ e.preventDefault();
             <br />
             <select ref="category">{categoryOptions}</select>
           </div>
+          <br />
           <input type="submit" value="Submit" />
         </form>
       </div>
     );
   }
 }
+
+ AddPortfolio.propTypes = {
+   categories: PropTypes.array,
+   handleSubmit: PropTypes.func,
+   addPortfolio: PropTypes.func
+ }
 
 export default AddPortfolio;
